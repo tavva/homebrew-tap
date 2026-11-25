@@ -21,14 +21,14 @@ class Tmux < Formula
     depends_on "jemalloc"
   end
 
-  # runs a server as a test
-  allow_network_access! :test
-
   # The server spins in screen_redraw_screen when a client is narrower than a
   # window with pane-border-status. Fixed upstream on the release_3.7d branch:
   # https://github.com/tmux/tmux/issues/5664
   # https://github.com/tmux/tmux/commit/0750e649eda0de089f94249a87476b1839fcb785
   patch :DATA
+
+  # runs a server as a test
+  allow_network_access! :test
 
   def install
     args = %W[
